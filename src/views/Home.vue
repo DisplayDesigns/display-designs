@@ -72,12 +72,43 @@
               />
             </figure>
           </div>
-          <h4 class="service-name">{{ service.name }}</h4>
-          <p class="service-text">{{ service.text }}</p>
-          <a class="service-link" href="#">Read More</a>
+          <div class="what-we-do-text-wrapper">
+            <div class="what-we-do-service-name">
+              <h4 class="service-name">{{ service.name }}</h4>
+            </div>
+            <div class="what-we-do-text-text-link">
+              <p class="service-text">{{ service.text }}</p>
+              <a class="service-link" href="#">Read More</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="take-a-glimps-container">
+      <div class="take-a-glimps-text">
+        <p>Working with us</p>
+        <p>Take a glimpse at what we can achieve together</p>
+        <div class="take-a-glimps-button-container">
+          <button class="take-a-glimps-button">Talk to us</button>
+        </div>
+      </div>
+      <div class="take-a-glimps-image-grid">
+        <div
+          v-for="image in takeAGlimps"
+          :key="image.name"
+        >
+          <div class="image-wrapper">
+            <figure>
+              <img
+                :src="require(`@/assets/${image.image}`)"
+                :alt="image.name"
+              />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="recent-news-container"></div>
   </div>
 </template>
 
@@ -90,6 +121,7 @@ export default {
   data() {
     return {
       whatWeDo: data.whatWeDo,
+      takeAGlimps: data.takeAGlimps
     };
   },
 };
@@ -145,20 +177,23 @@ export default {
     flex-direction: row;
     max-width: 1200px;
     margin: 20px auto;
-    // padding: 0 20px;
 
     .home-content-what-we-do {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       margin: 15px;
 
       .image-wrapper {
         img {
           height: auto;
           width: 100%;
-          // max-width: 720px;
         }
+      }
+
+      .what-we-do-text-wrapper {
+        display: flex;
+        flex-direction: column;
+
       }
 
       .service-name {
@@ -186,5 +221,49 @@ export default {
       }
     }
   }
+}
+
+.take-a-glimps-container {
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: white;
+  background-image: url("../assets/bg-bosch.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  
+
+  .take-a-glimps-image-grid {
+    display: grid;
+    gap: 15px;
+    padding-right: 30px;
+    width: 50%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    .image-wrapper {
+      
+
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .take-a-glimps-text {
+    padding-left: 30px;
+    padding-right: 30px;
+
+  }
+}
+
+.recent-news-container {
+  height: 50vh;
 }
 </style>
