@@ -132,6 +132,7 @@ export default {
 
           &:hover {
             background-color: white;
+            box-shadow: 0 0 5px 2.52px white;
             color: black;
           }
 
@@ -150,6 +151,10 @@ export default {
         .red {
           color: #ea0202;
           padding-left: 10px;
+
+          &:hover {
+            text-shadow:1px 1px 10px #ea0202, 1px 1px 10px #ca0000;
+          }
         }
       }
     }
@@ -178,13 +183,15 @@ export default {
           color: white;
           opacity: 0.7;
 
-          &:hover,
-          &:focus {
+          &:hover {
             opacity: 1;
+            text-shadow:1px 1px 10px #fff, 1px 1px 10px white;
           }
 
-          &.router-link-exact-active {
+          &.router-link-exact-active,
+          &:focus {
             color: #ea0202;
+            text-shadow:1px 1px 10px #ea0202, 1px 1px 10px #ca0000;
             opacity: 1;
           }
         }

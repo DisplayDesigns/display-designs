@@ -1,11 +1,19 @@
 <template>
   <div class="home">
     <div class="home-video-wrapper">
-      <video-background
+      <!-- <video-background
         src="../assets/Display-Designs-for-Web.mp4"
         style="max-height: 70vh; height: 100vh"
       >
-      </video-background>
+      </video-background> -->
+      <!-- <video-bg :sources="['../assets/Display-Designs-for-Web.mp4']" img="../assets/bg-bosch.jpg">
+        If you want to add content here, a slot is waiting!
+      </video-bg> -->
+
+      <video autoplay muted loop preload="auto">
+        <source :src="require('../assets/Display-Designs-for-Web.mp4')" type="video/mp4">
+      </video>
+
     </div>
     <div class="home-content-wrapper">
       <div class="home-content">
@@ -130,6 +138,13 @@ export default {
 <style lang="scss" scoped>
 .home-video-wrapper {
   background-color: black;
+  height: 89vh;
+
+  video {
+    height: 89vh;
+    width: 100vw;
+    object-fit: fill;
+}
 }
 
 .home-content-wrapper {
